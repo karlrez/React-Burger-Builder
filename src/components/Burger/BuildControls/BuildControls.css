@@ -38,6 +38,13 @@
     animation: enable 0.3s linear;
 }
 
+.condimentsBtn {
+    padding: 0;
+    border: none;
+    background: none;
+    color: red;
+}
+
 @keyframes enable {
     0% {
         transform: scale(1);

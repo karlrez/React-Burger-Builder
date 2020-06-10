@@ -1,20 +1,24 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
-import Aux from '../../../hoc/AuxFolder/Auxiliary';
+import Aux from '../../../hoc/Auxiliary/Auxiliary';
 import Button from '../../UI/Button/Button';
 
 class OrderSummary extends Component {
+    // This could be a functional component, doesn't have to be a class
     componentWillUpdate() {
         console.log('[OrderSummary] WillUpdate');
     }
 
     render() {
-        // outputting list items of ingredient & quantity
         const ingredientSummary = Object.keys(this.props.ingredients)
             .map(igKey => {
-                return <li key={igKey}>
-                    <span style={{ textTransform: 'capitalize' }}>{igKey}</span>: {this.props.ingredients[igKey]}
-                </li>
+                if (this.props.ingredients[igKey] > 0) {
+                    return (
+                        <li key={igKey}>
+                            <span style={{ textTransform: 'capitalize' }}>{igKey}</span>: {this.props.ingredients[igKey]}
+                        </li>);
+                }
+                else return null;
             });
 
         return (
